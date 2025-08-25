@@ -42,6 +42,14 @@ public class Jinwoo {
                     Task task = new Deadline(description, by);
                     todoList.add(task);
                     System.out.println(task);
+                } else if (input.startsWith("event")) {
+                    input = input.replaceFirst("event ", "");
+                    String description = input.split(" /from ")[0];
+                    String from = input.split(" /from ")[1].split(" /to ")[0];
+                    String to = input.split(" /to ")[1];
+                    Task task = new Event(description, from, to);
+                    todoList.add(task);
+                    System.out.println(task);
                 }
                 System.out.println("Now you have " + todoList.size() + " tasks in the list.");
             }
