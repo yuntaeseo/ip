@@ -10,4 +10,8 @@ public class Deadline extends Task {
     public String getDescription() {
         return description + " (by: " + by + ")";
     }
+    @Override
+    public String toString() {
+        return "[D]" + super.toString();
+    }
 }

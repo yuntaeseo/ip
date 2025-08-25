@@ -18,23 +18,30 @@ public class Jinwoo {
                 Task task = todoList.get(taskNum - 1);
                 task.mark();
                 System.out.println("Nice! I've marked this task as done:");
-                System.out.printf("[%s] %s\n", task.getStatusIcon(), task.getDescription());
+                System.out.println(task);
             } else if (input.startsWith("unmark")) {
                 int taskNum = Integer.parseInt(input.split(" ")[1]);
                 Task task = todoList.get(taskNum - 1);
                 task.unmark();
                 System.out.println("OK, I've marked this task as not done yet:");
-                System.out.printf("[%s] %s\n", task.getStatusIcon(), task.getDescription());
+                System.out.println(task);
             } else if (input.equals("list")) {
                 System.out.println("Here are the tasks in your list:");
-                todoList.forEach(task -> System.out.printf("%d.%s\n", todoList.indexOf(task) + 1, task.toString()));
+                todoList.forEach(task -> System.out.printf("%d.%s\n", todoList.indexOf(task) + 1, task));
             } else {
                 System.out.println("Got it. I've added this task:");
                 if (input.startsWith("todo")) {
                     String description = input.replaceFirst("todo ", "");
                     Task task = new Todo(description);
                     todoList.add(task);
-                    System.out.println(task.toString());
+                    System.out.println(task);
+                } else if (input.startsWith("deadline")) {
+                    input = input.replaceFirst("deadline ", "");
+                    String description = input.split(" /by ")[0];
+                    String by = input.split(" /by ")[1];
+                    Task task = new Deadline(description, by);
+                    todoList.add(task);
+                    System.out.println(task);
                 }
                 System.out.println("Now you have " + todoList.size() + " tasks in the list.");
             }
