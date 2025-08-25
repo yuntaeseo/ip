@@ -14,6 +14,12 @@ public class Jinwoo {
                 if (input.equals("bye")) {
                     System.out.println("Bye Hunter ???. Hope to see you again soon.");
                     return;
+                } else if (input.startsWith("delete")) {
+                    int taskNum = Integer.parseInt(input.split(" ")[1]);
+                    Task task = todoList.remove(taskNum - 1);
+                    System.out.println("Noted. I've removed this task:");
+                    System.out.println(task);
+                    System.out.println("Now you have " + todoList.size() + " tasks in the list.");
                 } else if (input.startsWith("mark")) {
                     int taskNum = Integer.parseInt(input.split(" ")[1]);
                     Task task = todoList.get(taskNum - 1);
@@ -82,4 +88,3 @@ public class Jinwoo {
 
     }
 }
-
