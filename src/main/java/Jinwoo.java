@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class Jinwoo {
 
-    public static ArrayList<String> todoList = new ArrayList<>();
+    protected static ArrayList<Task> todoList = new ArrayList<>();
 
     public static void echo() {
         Scanner scanner = new Scanner(System.in);
@@ -13,11 +13,25 @@ public class Jinwoo {
             if (input.equals("bye")) {
                 System.out.println("Bye Hunter ???. Hope to see you again soon.");
                 return;
+            } else if (input.startsWith("mark")) {
+                int taskNum = Integer.parseInt(input.split(" ")[1]);
+                Task task = todoList.get(taskNum - 1);
+                task.mark();
+                System.out.println("Nice! I've marked this task as done:");
+                System.out.printf("[%s] %s\n", task.getStatusIcon(), task.getDescription());
+            } else if (input.startsWith("unmark")) {
+                int taskNum = Integer.parseInt(input.split(" ")[1]);
+                Task task = todoList.get(taskNum - 1);
+                task.unmark();
+                System.out.println("OK, I've marked this task as not done yet:");
+                System.out.printf("[%s] %s\n", task.getStatusIcon(), task.getDescription());
             } else if (input.equals("list")) {
-                todoList.forEach(task -> System.out.printf("%d. %s\n", todoList.indexOf(task) + 1, task));
+                System.out.println("Here are the tasks in your list:");
+                todoList.forEach(task -> System.out.printf("%d.[%s] %s\n", todoList.indexOf(task) + 1, task.getStatusIcon(), task.getDescription()));
             } else {
-                todoList.add(input);
-                System.out.printf("added: %s\n", input);
+                Task task = new Task(input);
+                todoList.add(task);
+                System.out.printf("added: %s\n", task.getDescription());
             }
             System.out.println("________________________________________");
         }
