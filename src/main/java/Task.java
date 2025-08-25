@@ -19,6 +19,8 @@ public class Task {
     public void unmark() {
         isDone = false;
     }
-
+    public String toString() {
+        return "[" + getStatusIcon() + "] " + getDescription();
+    }
     //...
 }

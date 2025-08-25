@@ -27,11 +27,16 @@ public class Jinwoo {
                 System.out.printf("[%s] %s\n", task.getStatusIcon(), task.getDescription());
             } else if (input.equals("list")) {
                 System.out.println("Here are the tasks in your list:");
-                todoList.forEach(task -> System.out.printf("%d.[%s] %s\n", todoList.indexOf(task) + 1, task.getStatusIcon(), task.getDescription()));
+                todoList.forEach(task -> System.out.printf("%d.%s\n", todoList.indexOf(task) + 1, task.toString()));
             } else {
-                Task task = new Task(input);
-                todoList.add(task);
-                System.out.printf("added: %s\n", task.getDescription());
+                System.out.println("Got it. I've added this task:");
+                if (input.startsWith("todo")) {
+                    String description = input.replaceFirst("todo ", "");
+                    Task task = new Todo(description);
+                    todoList.add(task);
+                    System.out.println(task.toString());
+                }
+                System.out.println("Now you have " + todoList.size() + " tasks in the list.");
             }
             System.out.println("________________________________________");
         }
