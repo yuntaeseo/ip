@@ -1,18 +1,25 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Jinwoo {
+
+    public static ArrayList<String> todoList = new ArrayList<>();
 
     public static void echo() {
         Scanner scanner = new Scanner(System.in);
         while (true) {
             String input = scanner.nextLine();
+            System.out.println("________________________________________");
             if (input.equals("bye")) {
+                System.out.println("Bye Hunter ???. Hope to see you again soon.");
                 return;
+            } else if (input.equals("list")) {
+                todoList.forEach(task -> System.out.printf("%d. %s\n", todoList.indexOf(task) + 1, task));
             } else {
-                System.out.println("________________________________________");
-                System.out.println(input);
-                System.out.println("\n________________________________________");
+                todoList.add(input);
+                System.out.printf("added: %s\n", input);
             }
+            System.out.println("________________________________________");
         }
     }
 
@@ -29,11 +36,6 @@ public class Jinwoo {
         System.out.println("Hello! I'm Jinwoo, the Shadow Monarch\nWhat can I do for you?");
         System.out.println("________________________________________");
         echo();
-        System.out.println("________________________________________");
-        System.out.println("Bye Hunter ???. Hope to see you again soon.");
-        System.out.println("________________________________________");
-
-
 
     }
 }
