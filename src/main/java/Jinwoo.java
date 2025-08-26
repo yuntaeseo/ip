@@ -43,6 +43,7 @@ public class Jinwoo {
                         System.out.println("Got it. I've added this task:");
                         System.out.println(task);
                     } else if (input.startsWith("deadline")) {
+                        // TODO : handle exception for deadline and event
                         input = input.replaceFirst("deadline", "").trim();
                         String description = input.split(" /by ")[0];
                         String by = input.split(" /by ")[1];
@@ -75,11 +76,11 @@ public class Jinwoo {
 
     public static void main(String[] args) {
         String logo = """
-                      _ ___ _  ___      _____   ___ \s
-                  _ | |_ _| \\| \\ \\    / / _ \\ / _ \\\s
-                 | || || || .` |\\ \\/\\/ / (_) | (_) |
-                  \\__/|___|_|\\_| \\_/\\_/ \\___/ \\___/ \
-                """;
+                     _ ___ _   ___        _____   ___
+                    | |_ _| \\ | \\ \\      / / _ \\ / _ \\
+                 _  | || ||  \\| |\\ \\ /\\ / / | | | | | |
+                | |_| || || |\\  | \\ V  V /| |_| | |_| |
+                 \\___/|___|_| \\_|  \\_/\\_/  \\___/ \\___/""";
         System.out.println(logo);
         System.out.println("________________________________________");
         System.out.println("Hello! I'm Jinwoo, the Shadow Monarch\nWhat can I do for you?");
