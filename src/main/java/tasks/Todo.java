@@ -17,6 +17,7 @@ public class Todo extends Task {
             throw new DukeException("Warning ??? : the description of a todo cannot be empty.");
         }
     }
+
     @Override
     public String toString() {
         return " [T]" + super.toString();

@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.io.FileWriter;
 
 import exception.DukeException;
 import tasks.Deadline;
@@ -35,7 +36,7 @@ public class Storage {
             Scanner scanner = new Scanner(file);
             while (scanner.hasNextLine()) {
                 String text = scanner.nextLine();
-                Task task = parseTaskFromText(text);
+                Task task = taskFromText(text);
                 todoList.add(task);
             }
         } catch (IOException e) {
@@ -46,10 +47,31 @@ public class Storage {
     }
 
     /**
+     * Save task
+     */
+    public static void saveTasks(ArrayList<Task> todoList) {
+        try {
+            File file = new File(PATH);
+            if (!file.exists()) { // Create the file if it does not exist
+                file.getParentFile().mkdirs();
+                file.createNewFile();
+            }
+            FileWriter writer = new FileWriter(file);
+            for (Task task : todoList) {
+                // Searched System method from copilot
+                writer.write(textFromTask(task) + System.lineSeparator());
+            }
+            writer.close();
+        } catch (IOException e) {
+            System.out.println("Error writing to save file: " + e.getMessage());
+            throw new RuntimeException("Failed to write to save file", e);
+        }
+    }
+    /**
      * Parse task from text
      * @throws RuntimeException if the text format is invalid
      */
-    public static Task parseTaskFromText(String text) {
+    public static Task taskFromText(String text) {
         String type = null;
         String description = null;
         try {
@@ -86,8 +108,28 @@ public class Storage {
             System.out.println("Argument missing for: " + type + " " + description);
             throw new RuntimeException("Fix save file", e);
         } catch (DukeException e) {
-            System.out.println("Fix save file" + e.getMessage());
-            throw new RuntimeException(e);
+            System.out.println("Text to Task failed" + e.getMessage());
+            throw new RuntimeException("Fix save file", e);
+        }
+    }
+    /**
+     * Get text from task
+     * Assume tasks in the list are all valid
+     */
+    public static String textFromTask(Task task) {
+        int status = task.getIsDone();
+        String description = task.getJustDescription();
+        if (task instanceof Todo) {
+            return String.format("T | %d | %s", status, description);
+        } else if (task instanceof Deadline) {
+            String by = ((Deadline) task).getBy();
+            return String.format("D | %d | %s | %s", status, description, by);
+        } else if (task instanceof Event) {
+            String from = ((Event) task).getFrom();
+            String to = ((Event) task).getTo();
+            return String.format("E | %d | %s | %s | %s", status, description, from, to);
+        } else {
+            throw new RuntimeException("Wrong task type");
         }
     }
 }

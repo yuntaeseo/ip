@@ -80,6 +80,7 @@ public class Jinwoo {
             } catch (DukeException e) {
                 System.out.println(e.getMessage());
             } finally {
+                Storage.saveTasks(todoList);
                 System.out.println("________________________________________");
             }
         }

@@ -24,6 +24,13 @@ public class Event extends Task {
             throw new DukeException("Warning ??? : the time of an event cannot be empty.");
         }
     }
+    public String getFrom() {
+        return from;
+    }
+    public String getTo() {
+        return to;
+    }
+
 
     @Override
     public String getDescription() {
