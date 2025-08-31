@@ -1,6 +1,14 @@
+/**
+ * A deadline task is a task that needs to be done by a specific date or time.
+ */
 public class Deadline extends Task {
     protected String by;
 
+    /**
+     * Constructs a Deadline task with the given description and deadline.
+     *
+     * @throws DukeException if the description or deadline is empty.
+     */
     public Deadline(String description, String by) throws DukeException {
         super(description);
         this.by = by;
@@ -16,6 +24,7 @@ public class Deadline extends Task {
     public String getDescription() {
         return description + " (by: " + by + ")";
     }
+
     @Override
     public String toString() {
         return " [D]" + super.toString();

@@ -1,10 +1,18 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * A chatbot to manage user tasks.
+ * Named after Sung Jinwoo, the Shadow Monarch from Solo Leveling.
+ * @author yuntae seo
+ */
 public class Jinwoo {
 
     protected static ArrayList<Task> todoList = new ArrayList<>();
 
+    /**
+     * Main function to handle user input and respond.
+     */
     public static void echo() {
         Scanner scanner = new Scanner(System.in);
         while (true) {

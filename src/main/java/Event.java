@@ -1,7 +1,14 @@
+/**
+ * Represents an event task with a description, start time, and end time.
+ */
 public class Event extends Task {
     protected String from;
     protected String to;
-
+    /**
+     * Constructs an Event task with the given description, start time, and end time.
+     *
+     * @throws DukeException if the description, start time, or end time is empty.
+     */
     public Event(String description, String from, String to) throws DukeException {
         super(description);
         this.from = from;
