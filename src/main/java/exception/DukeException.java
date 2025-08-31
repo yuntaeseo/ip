@@ -1,3 +1,5 @@
+package exception;
+
 /**
  * Represents a custom exception for the Duke application.
  */

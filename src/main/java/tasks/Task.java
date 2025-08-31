@@ -1,3 +1,5 @@
+package tasks;
+
 /**
  * Represents a basic task with a description and completion status.
  */
@@ -5,7 +7,7 @@ public class Task {
     protected String description;
     protected boolean isDone;
     /**
-     * Constructs a Task with the given description and marks it as not done.
+     * Constructs a Tasks.Task with the given description and marks it as not done.
      */
     public Task(String description) {
         this.description = description;

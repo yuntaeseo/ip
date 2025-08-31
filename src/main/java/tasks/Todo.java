@@ -1,9 +1,13 @@
+package tasks;
+
+import exception.DukeException;
+
 /**
- * A Todo task is a simple task without any date or time constraints.
+ * A Tasks.Todo task is a simple task without any date or time constraints.
  */
 public class Todo extends Task {
     /**
-     * Constructs a Todo task with the given description.
+     * Constructs a Tasks.Todo task with the given description.
      *
      * @throws DukeException if the description is empty.
      */

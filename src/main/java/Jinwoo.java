@@ -1,6 +1,9 @@
-import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.ArrayList;
 
+import exception.DukeException;
+import tasks.*;
+import storage.Storage;
 /**
  * A chatbot to manage user tasks.
  * Named after Sung Jinwoo, the Shadow Monarch from Solo Leveling.
@@ -13,6 +16,7 @@ public class Jinwoo {
     /**
      * Main function to handle user input and respond.
      */
+
     public static void echo() {
         Scanner scanner = new Scanner(System.in);
         while (true) {
@@ -81,6 +85,9 @@ public class Jinwoo {
         }
     }
 
+    public static void load() {
+        todoList = Storage.loadTasks();
+    }
 
     public static void main(String[] args) {
         String logo = """
@@ -93,6 +100,7 @@ public class Jinwoo {
         System.out.println("________________________________________");
         System.out.println("Hello! I'm Jinwoo, the Shadow Monarch\nWhat can I do for you?");
         System.out.println("________________________________________");
+        load();
         echo();
 
     }
