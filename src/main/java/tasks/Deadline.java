@@ -1,3 +1,6 @@
+package tasks;
+
+import exception.DukeException;
 /**
  * A deadline task is a task that needs to be done by a specific date or time.
  */
@@ -5,7 +8,7 @@ public class Deadline extends Task {
     protected String by;
 
     /**
-     * Constructs a Deadline task with the given description and deadline.
+     * Constructs a Tasks.Deadline task with the given description and deadline.
      *
      * @throws DukeException if the description or deadline is empty.
      */
@@ -18,6 +21,11 @@ public class Deadline extends Task {
         if (by.isBlank()) {
             throw new DukeException("Warning ??? : the deadline of a deadline cannot be empty.");
         }
+    }
+
+
+    public String getBy() {
+        return by;
     }
 
     @Override

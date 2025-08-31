@@ -1,3 +1,7 @@
+package tasks;
+
+import exception.DukeException;
+
 /**
  * Represents an event task with a description, start time, and end time.
  */
@@ -5,7 +9,7 @@ public class Event extends Task {
     protected String from;
     protected String to;
     /**
-     * Constructs an Event task with the given description, start time, and end time.
+     * Constructs an Tasks.Event task with the given description, start time, and end time.
      *
      * @throws DukeException if the description, start time, or end time is empty.
      */
@@ -20,6 +24,13 @@ public class Event extends Task {
             throw new DukeException("Warning ??? : the time of an event cannot be empty.");
         }
     }
+    public String getFrom() {
+        return from;
+    }
+    public String getTo() {
+        return to;
+    }
+
 
     @Override
     public String getDescription() {
