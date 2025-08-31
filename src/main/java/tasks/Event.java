@@ -1,13 +1,18 @@
 package tasks;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Locale;
 import exception.DukeException;
+import util.Parser;
 
 /**
  * Represents an event task with a description, start time, and end time.
  */
 public class Event extends Task {
-    protected String from;
-    protected String to;
+    protected LocalDate from;
+    protected LocalDate to;
+
     /**
      * Constructs an Tasks.Event task with the given description, start time, and end time.
      *
@@ -15,8 +20,8 @@ public class Event extends Task {
      */
     public Event(String description, String from, String to) throws DukeException {
         super(description);
-        this.from = from;
-        this.to = to;
+        this.from = Parser.parseToDate(from);
+        this.to = Parser.parseToDate(to);
         if (description.isBlank()) {
             throw new DukeException("Warning ??? : the description of an event cannot be empty.");
         }
@@ -24,18 +29,29 @@ public class Event extends Task {
             throw new DukeException("Warning ??? : the time of an event cannot be empty.");
         }
     }
+
+    /**
+     * LocalDate to String
+     * Storage print purpose
+     */
     public String getFrom() {
-        return from;
+        return from.toString();
     }
+
     public String getTo() {
-        return to;
+        return to.toString();
     }
 
-
+    /**
+     * Get description for user print purpose
+     */
     @Override
     public String getDescription() {
-        return description + " (from: " + from + " to: " + to + ")";
+        return description + " (from: "
+                + from.format(DateTimeFormatter.ofPattern("MMM d yyyy", Locale.ENGLISH)) + " to: "
+                + to.format(DateTimeFormatter.ofPattern("MMM d yyyy", Locale.ENGLISH)) + ")";
     }
+
     @Override
     public String toString() {
         return " [E]" + super.toString();

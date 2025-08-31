@@ -1,11 +1,16 @@
 package tasks;
 
+import util.Parser;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Locale;
+
 import exception.DukeException;
 /**
  * A deadline task is a task that needs to be done by a specific date or time.
  */
 public class Deadline extends Task {
-    protected String by;
+    protected LocalDate by;
 
     /**
      * Constructs a Tasks.Deadline task with the given description and deadline.
@@ -14,7 +19,7 @@ public class Deadline extends Task {
      */
     public Deadline(String description, String by) throws DukeException {
         super(description);
-        this.by = by;
+        this.by = Parser.parseToDate(by);
         if (description.isBlank()) {
             throw new DukeException("Warning ??? : the description of a deadline cannot be empty.");
         }
@@ -23,14 +28,19 @@ public class Deadline extends Task {
         }
     }
 
-
+    /**
+     * LocalDate to String
+     * Storage print purpose
+     */
     public String getBy() {
-        return by;
+        return by.toString();
     }
-
+    /**
+     * Get description for user print purpose
+     */
     @Override
     public String getDescription() {
-        return description + " (by: " + by + ")";
+        return description + " (by: " + by.format(DateTimeFormatter.ofPattern("MMM d yyyy", Locale.ENGLISH)) + ")";
     }
 
     @Override
