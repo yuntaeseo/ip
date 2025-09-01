@@ -39,8 +39,11 @@ public class Storage {
         try {
             File file = new File(filePath);
             if (!file.exists()) { // Create the file if it does not exist
-                file.getParentFile().mkdirs();
-                file.createNewFile();
+                boolean mkdirSuccess = file.getParentFile().mkdirs();
+                boolean fileSuccess = file.createNewFile();
+                if (!mkdirSuccess || !fileSuccess) {
+                    throw new IOException("Failed to create file or directory");
+                }
                 return todoList;
             }
             Scanner scanner = new Scanner(file);
