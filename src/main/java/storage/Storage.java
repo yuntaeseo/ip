@@ -1,10 +1,10 @@
 package storage;
 
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.io.FileWriter;
 
 import exception.DukeException;
 import tasks.Deadline;
@@ -16,18 +16,28 @@ import tasks.Todo;
  * Storage class for handling data input output
  */
 public class Storage {
-    private static final String PATH = "./data/save.txt";
+
+    private final String filePath;
+
+    /**
+     * Constructor for Storage
+     *
+     * @param filePath path to the file
+     */
+    public Storage(String filePath) {
+        this.filePath = filePath;
+    }
 
     /**
      * Load task
      * if the file does not exist, create a new file and return an empty list
+     *
      * @throws RuntimeException if there is an error reading the file
      */
-    @SuppressWarnings("ResultOfMethodCallIgnored")
-    public static ArrayList<Task> loadTasks() {
+    public ArrayList<Task> loadTasks() {
         ArrayList<Task> todoList = new ArrayList<>();
         try {
-            File file = new File(PATH);
+            File file = new File(filePath);
             if (!file.exists()) { // Create the file if it does not exist
                 file.getParentFile().mkdirs();
                 file.createNewFile();
@@ -49,9 +59,9 @@ public class Storage {
     /**
      * Save task
      */
-    public static void saveTasks(ArrayList<Task> todoList) {
+    public void saveTasks(ArrayList<Task> todoList) {
         try {
-            File file = new File(PATH);
+            File file = new File(filePath);
             if (!file.exists()) { // Create the file if it does not exist
                 file.getParentFile().mkdirs();
                 file.createNewFile();
@@ -67,11 +77,13 @@ public class Storage {
             throw new RuntimeException("Failed to write to save file", e);
         }
     }
+
     /**
      * Parse task from text
+     *
      * @throws RuntimeException if the text format is invalid
      */
-    public static Task taskFromText(String text) {
+    public Task taskFromText(String text) {
         String type = null;
         String description = null;
         try {
@@ -112,11 +124,12 @@ public class Storage {
             throw new RuntimeException("Fix save file", e);
         }
     }
+
     /**
      * Get text from task
      * Assume tasks in the list are all valid
      */
-    public static String textFromTask(Task task) {
+    public String textFromTask(Task task) {
         int status = task.getIsDone();
         String description = task.getJustDescription();
         if (task instanceof Todo) {

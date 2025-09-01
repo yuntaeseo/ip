@@ -1,2 +1,2 @@
-D | 1 | read | 1111-11-11
-E | 1 | read | 1111-11-11 | 1111-11-11
+T | 0 | borrow book
+D | 0 | return book | 1111-12-01
