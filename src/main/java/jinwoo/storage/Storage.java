@@ -65,10 +65,6 @@ public class Storage {
     public void saveTasks(ArrayList<Task> todoList) {
         try {
             File file = new File(filePath);
-            if (!file.exists()) { // Create the file if it does not exist
-                file.getParentFile().mkdirs();
-                file.createNewFile();
-            }
             FileWriter writer = new FileWriter(file);
             for (Task task : todoList) {
                 // Searched System method from copilot
