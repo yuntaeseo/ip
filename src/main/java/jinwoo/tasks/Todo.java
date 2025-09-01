@@ -1,6 +1,6 @@
-package tasks;
+package jinwoo.tasks;
 
-import exception.DukeException;
+import jinwoo.exception.DukeException;
 
 /**
  * A Tasks.Todo task is a simple task without any date or time constraints.

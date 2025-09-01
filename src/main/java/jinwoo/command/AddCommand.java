@@ -1,13 +1,13 @@
-package command;
+package jinwoo.command;
 
-import exception.DukeException;
-import storage.Storage;
-import tasks.Deadline;
-import tasks.Event;
-import tasks.Task;
-import tasks.TaskList;
-import tasks.Todo;
-import util.Ui;
+import jinwoo.exception.DukeException;
+import jinwoo.storage.Storage;
+import jinwoo.tasks.Deadline;
+import jinwoo.tasks.Event;
+import jinwoo.tasks.Task;
+import jinwoo.tasks.TaskList;
+import jinwoo.tasks.Todo;
+import jinwoo.util.Ui;
 
 /**
  * Add command for all task types.

@@ -1,4 +1,4 @@
-package storage;
+package jinwoo.storage;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -6,11 +6,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import exception.DukeException;
-import tasks.Deadline;
-import tasks.Event;
-import tasks.Task;
-import tasks.Todo;
+import jinwoo.exception.DukeException;
+import jinwoo.tasks.Deadline;
+import jinwoo.tasks.Event;
+import jinwoo.tasks.Task;
+import jinwoo.tasks.Todo;
 
 /**
  * Storage class for handling data input output

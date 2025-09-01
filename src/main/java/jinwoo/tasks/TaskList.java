@@ -1,4 +1,4 @@
-package tasks;
+package jinwoo.tasks;
 
 import java.util.ArrayList;
 
@@ -7,11 +7,7 @@ import java.util.ArrayList;
  */
 public class TaskList {
 
-    private ArrayList<Task> tasks;
-
-    public TaskList() {
-        this.tasks = new ArrayList<>();
-    }
+    private final ArrayList<Task> tasks;
 
     public TaskList(ArrayList<Task> tasks) {
         this.tasks = tasks;
@@ -33,8 +29,6 @@ public class TaskList {
 
     /**
      * Mark
-     *
-     * @param taskNum
      */
     public void markTask(int taskNum) {
         tasks.get(taskNum).mark();
@@ -42,8 +36,6 @@ public class TaskList {
 
     /**
      * Unmark
-     *
-     * @param taskNum
      */
     public void unmarkTask(int taskNum) {
         tasks.get(taskNum).unmark();

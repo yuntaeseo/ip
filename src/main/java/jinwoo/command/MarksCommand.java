@@ -1,16 +1,15 @@
-package command;
+package jinwoo.command;
 
 
-import exception.DukeException;
-import storage.Storage;
-import tasks.TaskList;
-import util.Ui;
+import jinwoo.exception.DukeException;
+import jinwoo.storage.Storage;
+import jinwoo.tasks.TaskList;
+import jinwoo.util.Ui;
 
 /**
  * Mark, Unmark command.
  */
 public class MarksCommand extends Command {
-    private int taskNum;
 
     public MarksCommand(String[] fullCommand) {
         super(fullCommand);
@@ -19,7 +18,7 @@ public class MarksCommand extends Command {
     @Override
     public void execute(TaskList tasks, Ui ui, Storage storage) throws DukeException {
         try {
-            taskNum = Integer.parseInt(getCommand()[1]) - 1;
+            int taskNum = Integer.parseInt(getCommand()[1]) - 1;
             if (getCommand()[0].equals("mark")) {
                 tasks.markTask(taskNum);
                 System.out.println("Nice! I've marked this task as done:");

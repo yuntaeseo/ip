@@ -1,10 +1,11 @@
-package tasks;
+package jinwoo.tasks;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
-import exception.DukeException;
-import util.Parser;
+
+import jinwoo.exception.DukeException;
+import jinwoo.util.Parser;
 
 /**
  * Represents an event task with a description, start time, and end time.

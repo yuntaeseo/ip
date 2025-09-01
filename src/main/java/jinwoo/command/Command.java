@@ -1,9 +1,9 @@
-package command;
+package jinwoo.command;
 
-import exception.DukeException;
-import storage.Storage;
-import tasks.TaskList;
-import util.Ui;
+import jinwoo.exception.DukeException;
+import jinwoo.storage.Storage;
+import jinwoo.tasks.TaskList;
+import jinwoo.util.Ui;
 
 /**
  * Abstract Command class to represent user commands.
@@ -11,9 +11,6 @@ import util.Ui;
 public abstract class Command {
 
     private String[] fullCommand;
-    private TaskList tasks;
-    private Ui ui;
-    private Storage storage;
 
     public Command(String[] fullCommand) {
         this.fullCommand = fullCommand;

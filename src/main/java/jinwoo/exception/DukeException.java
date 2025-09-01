@@ -1,4 +1,4 @@
-package exception;
+package jinwoo.exception;
 
 /**
  * Represents a custom exception for the Duke application.

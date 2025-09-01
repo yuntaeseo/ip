@@ -1,10 +1,10 @@
-package command;
+package jinwoo.command;
 
-import exception.DukeException;
-import storage.Storage;
-import tasks.Task;
-import tasks.TaskList;
-import util.Ui;
+import jinwoo.exception.DukeException;
+import jinwoo.storage.Storage;
+import jinwoo.tasks.Task;
+import jinwoo.tasks.TaskList;
+import jinwoo.util.Ui;
 
 /**
  * Delete command

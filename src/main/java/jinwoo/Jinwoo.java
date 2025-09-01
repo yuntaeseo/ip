@@ -1,12 +1,11 @@
-import java.util.ArrayList;
+package jinwoo;
 
-import command.Command;
-import exception.DukeException;
-import storage.Storage;
-import tasks.Task;
-import tasks.TaskList;
-import util.Parser;
-import util.Ui;
+import jinwoo.command.Command;
+import jinwoo.exception.DukeException;
+import jinwoo.storage.Storage;
+import jinwoo.tasks.TaskList;
+import jinwoo.util.Parser;
+import jinwoo.util.Ui;
 
 /**
  * A chatbot to manage user tasks.
@@ -16,15 +15,14 @@ import util.Ui;
  */
 public class Jinwoo {
 
-    private static Ui ui;
-    private static ArrayList<Task> todoList = new ArrayList<>();
-    private Storage storage;
-    private TaskList tasks;
+    private final Ui ui;
+    private final Storage storage;
+    private final TaskList tasks;
 
     /**
      * Constructor for Jinwoo chatbot.
      * Initializes the UI, Storage, and TaskList components.
-     * Loads tasks initially
+     * Loads Tasks initially
      */
     public Jinwoo(String filePath) {
         ui = new Ui();
@@ -41,6 +39,7 @@ public class Jinwoo {
      */
     public void run() {
         ui.hello();
+        //noinspection InfiniteLoopStatement
         while (true) {
             try {
                 String fullCommand = ui.readCommand();

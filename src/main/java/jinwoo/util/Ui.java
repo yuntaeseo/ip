@@ -1,10 +1,10 @@
-package util;
+package jinwoo.util;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import tasks.Task;
-import tasks.TaskList;
+import jinwoo.tasks.Task;
+import jinwoo.tasks.TaskList;
 
 /**
  * Ui class for handling user interactions

@@ -1,11 +1,12 @@
-package tasks;
+package jinwoo.tasks;
 
-import util.Parser;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
-import exception.DukeException;
+import jinwoo.exception.DukeException;
+import jinwoo.util.Parser;
+
 /**
  * A deadline task is a task that needs to be done by a specific date or time.
  */
@@ -35,6 +36,7 @@ public class Deadline extends Task {
     public String getBy() {
         return by.toString();
     }
+
     /**
      * Get description for user print purpose
      */

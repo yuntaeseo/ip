@@ -1,8 +1,8 @@
-package command;
+package jinwoo.command;
 
-import storage.Storage;
-import tasks.TaskList;
-import util.Ui;
+import jinwoo.storage.Storage;
+import jinwoo.tasks.TaskList;
+import jinwoo.util.Ui;
 
 /**
  * List command to list all tasks.
