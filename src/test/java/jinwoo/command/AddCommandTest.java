@@ -21,9 +21,7 @@ class AddCommandTest {
         Ui ui = new Ui();
         Storage storage = new Storage("test.txt");
 
-        DukeException e = assertThrows(DukeException.class, () -> {
-            addCommand.execute(tasks, ui, storage);
-        });
+        DukeException e = assertThrows(DukeException.class, () -> addCommand.execute(tasks, ui, storage));
         assertEquals("Warning ??? : Please enter date in the format yyyy-MM-dd.", e.getMessage());
     }
 }
