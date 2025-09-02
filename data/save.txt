@@ -1,3 +1,4 @@
 T | 0 | borrow book
 D | 0 | return book | 1111-12-01
 E | 0 | book | 1111-11-11 | 1111-11-11
+D | 0 | book | 1111-11-11

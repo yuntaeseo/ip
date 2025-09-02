@@ -31,14 +31,13 @@ public class Parser {
      *
      * @throws DateTimeParseException if the input string is not in the correct format.
      */
-    public static LocalDate parseToDate(String by) {
+    public static LocalDate parseToDate(String by) throws DukeException {
         try {
             String date = by.trim();
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd", Locale.ENGLISH);
             return (LocalDate.parse(date, formatter));
         } catch (DateTimeParseException e) {
-            System.out.println("Warning ??? : Please enter date in the format yyyy-MM-dd.");
-            throw new DateTimeParseException("Invalid date format", by, e.getErrorIndex());
+            throw new DukeException("Warning ??? : Please enter date in the format yyyy-MM-dd.");
         }
     }
 
@@ -90,7 +89,7 @@ public class Parser {
                 String to = parts[1].split(" /to ")[1];
                 return new AddCommand(new String[]{EVENT, description, from, to});
             }
-            default -> throw new DukeException("Warning ??? : Wrong action");
+            default -> throw new DukeException("Warning ??? : Wrong action.");
             }
         } catch (ArrayIndexOutOfBoundsException e) {
             throw new DukeException("Warning ??? : Missing command input.");
