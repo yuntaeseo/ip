@@ -15,6 +15,9 @@ public class MarksCommand extends Command {
         super(fullCommand);
     }
 
+    /**
+     * Marks or Unmarks a task.
+     */
     @Override
     public void execute(TaskList tasks, Ui ui, Storage storage) throws DukeException {
         try {

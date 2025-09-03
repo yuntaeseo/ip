@@ -15,7 +15,7 @@ public class Event extends Task {
     protected LocalDate to;
 
     /**
-     * Constructs an Tasks.Event task with the given description, start time, and end time.
+     * Constructs a Tasks.Event task with the given description, start time, and end time.
      *
      * @throws DukeException if the description, start time, or end time is empty.
      */
