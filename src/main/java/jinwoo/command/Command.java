@@ -22,5 +22,13 @@ public abstract class Command {
     public String[] getCommand() {
         return fullCommand;
     }
+
+    /**
+     * Abstract method ovrridden by subclasses to execute specific commands.
+     * @param tasks
+     * @param ui
+     * @param storage
+     * @throws DukeException
+     */
     public abstract void execute(TaskList tasks, Ui ui, Storage storage) throws DukeException;
 }
