@@ -9,6 +9,7 @@ import jinwoo.command.AddCommand;
 import jinwoo.command.Command;
 import jinwoo.command.DeleteCommand;
 import jinwoo.command.ExitCommand;
+import jinwoo.command.FindCommand;
 import jinwoo.command.ListCommand;
 import jinwoo.command.MarksCommand;
 import jinwoo.exception.DukeException;
@@ -25,6 +26,7 @@ public class Parser {
     private static final String TODO = "todo";
     private static final String DEADLINE = "deadline";
     private static final String EVENT = "event";
+    private static final String FIND = "find";
 
     /**
      * Parses a string into a LocalDate object.
@@ -88,6 +90,10 @@ public class Parser {
                 String from = parts[1].split(" /from ")[1].split(" /to ")[0];
                 String to = parts[1].split(" /to ")[1];
                 return new AddCommand(new String[]{EVENT, description, from, to});
+            }
+            case FIND -> {
+                String keyword = parts[1];
+                return new FindCommand(new String[]{keyword});
             }
             default -> throw new DukeException("Warning ??? : Wrong action.");
             }
