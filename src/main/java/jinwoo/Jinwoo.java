@@ -30,27 +30,21 @@ public class Jinwoo {
         tasks = new TaskList(storage.loadTasks());
     }
 
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         new Jinwoo("./data/save.txt").run();
-    }
+    }*/
 
     /**
-     * Runs the Jinwoo chatbot.
+     * Returns the chatbot output for GUI mode.
      */
-    public void run() {
-        ui.hello();
-        //noinspection InfiniteLoopStatement
-        while (true) {
-            try {
-                String fullCommand = ui.readCommand();
-                ui.printLine();
-                Command c = Parser.parseCommand(fullCommand);
-                c.execute(tasks, ui, storage);
-            } catch (DukeException e) {
-                ui.showError(e.getMessage());
-            } finally {
-                ui.printLine();
-            }
+    public String getResponse(String userInput) {
+        try {
+            //No Scanner needed here
+            Command c = Parser.parseCommand(userInput);
+            c.execute(tasks, ui, storage);
+            return ui.getResponse();
+        } catch (DukeException e) {
+            return e.getMessage();
         }
     }
 }

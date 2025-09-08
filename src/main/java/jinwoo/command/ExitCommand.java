@@ -14,8 +14,7 @@ public class ExitCommand extends Command {
      */
     @Override
     public void execute(TaskList tasks, Ui ui, Storage storage) {
-        System.out.println("Bye Hunter ???. Hope to see you again soon.");
-        ui.printLine();
-        System.exit(0);
+        ui.printExit();
+        System.exit(0); // Terminates before printing exit message
     }
 }
