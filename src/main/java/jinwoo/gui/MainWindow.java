@@ -43,7 +43,8 @@ public class MainWindow extends AnchorPane {
     private void handleUserInput() {
         String userText = userInput.getText();
         String jinwooText = jinwoo.getResponse(userText);
-        dialogContainer.getChildren().addAll(DialogBox.getUserDialog(userText, userImage), DialogBox.getJinwooDialog(jinwooText, jinwooImage));
+        dialogContainer.getChildren().addAll(DialogBox.getUserDialog(userText, userImage),
+                DialogBox.getJinwooDialog(jinwooText, jinwooImage));
         userInput.clear();
     }
 }
