@@ -13,40 +13,6 @@ public class Ui {
     private StringBuilder responseBuffer = new StringBuilder();
 
     /**
-     * Prints the opening message and logo
-     */
-    public void hello() {
-        String logo = """
-                     _ ___ _   ___        _____   ___
-                    | |_ _| \\ | \\ \\      / / _ \\ / _ \\
-                 _  | || ||  \\| |\\ \\ /\\ / / | | | | | |
-                | |_| || || |\\  | \\ V  V /| |_| | |_| |
-                 \\___/|___|_| \\_|  \\_/\\_/  \\___/ \\___/""";
-        System.out.println(logo);
-        System.out.println("________________________________________");
-        System.out.println("Hello! I'm Jinwoo, the Shadow Monarch\nWhat can I do for you?");
-        System.out.println("________________________________________");
-    }
-
-    public void printLine() {
-        System.out.println("________________________________________");
-    }
-
-    /**
-     * Error message
-     */
-    public void showError(String message) {
-        System.out.println(message);
-    }
-
-    /**
-     * Prints a task according to task's toString()
-     */
-    public void printTask(TaskList tasks, int taskNum) {
-        System.out.println(tasks.getTasks(taskNum));
-    }
-
-    /**
      * Append all tasks to buffer
      */
     public void bufferAppendList(TaskList tasks) {
@@ -54,7 +20,7 @@ public class Ui {
         taskList.forEach(task ->
                 responseBuffer.append(String.format("%d.%s"
                         + System.lineSeparator(), taskList.indexOf(task) + 1, task)));
-        ;
+
     }
 
     /**
