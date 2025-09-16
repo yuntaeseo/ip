@@ -30,6 +30,7 @@ public class AddCommand extends Command {
         String to;
         switch (getCommand()[0]) {
         case "todo":
+            assert getCommand().length == 2 : "The length of todo command should be 2";
             description = getCommand()[1];
             task = new Todo(description);
             tasks.addTask(task);
@@ -37,6 +38,7 @@ public class AddCommand extends Command {
             storage.saveTasks(tasks.getTasks());
             break;
         case "deadline":
+            assert getCommand().length == 3 : "The length of deadline command should be 3";
             description = getCommand()[1];
             by = getCommand()[2];
             task = new Deadline(description, by);
@@ -45,6 +47,7 @@ public class AddCommand extends Command {
             storage.saveTasks(tasks.getTasks());
             break;
         case "event":
+            assert getCommand().length == 4 : "The length of event command should be 4";
             description = getCommand()[1];
             from = getCommand()[2];
             to = getCommand()[3];
