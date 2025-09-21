@@ -19,7 +19,7 @@ public class FindCommand extends Command {
      * Search description of all tasks with keyword and print.
      */
     @Override
-    public void execute(TaskList tasks, Ui ui, Storage storage) throws DukeException {
+    public void executeCommand(TaskList tasks, Ui ui, Storage storage) throws DukeException {
         TaskList foundTasks = new TaskList();
         String keyword = getCommand()[0];
         for (int i = 0; i < tasks.getSize(); i++) {

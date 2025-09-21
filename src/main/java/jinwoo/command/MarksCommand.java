@@ -19,7 +19,7 @@ public class MarksCommand extends Command {
      * Marks or Unmarks a task.
      */
     @Override
-    public void execute(TaskList tasks, Ui ui, Storage storage) throws DukeException {
+    public void executeCommand(TaskList tasks, Ui ui, Storage storage) throws DukeException {
         try {
             int taskNum = Integer.parseInt(getCommand()[1]) - 1;
             if (getCommand()[0].equals("mark")) {

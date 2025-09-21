@@ -44,6 +44,19 @@ public class Event extends Task {
     }
 
     /**
+     * Creates and returns a copy for different history states.
+     * Refer to copilot suggestion.
+     */
+    @Override
+    public Task copyTask() throws DukeException {
+        Event copy = new Event(this.description, this.from.toString(), this.to.toString());
+        if (this.isDone) {
+            copy.mark();
+        }
+        return copy;
+    }
+
+    /**
      * Get description for user print purpose
      */
     @Override

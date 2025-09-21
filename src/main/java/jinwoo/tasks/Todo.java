@@ -7,7 +7,7 @@ import jinwoo.exception.DukeException;
  */
 public class Todo extends Task {
     /**
-     * Constructs a Tasks.Todo task with the given description.
+     * Constructs a Tasks.Todo with the given description.
      *
      * @throws DukeException if the description is empty.
      */
@@ -16,6 +16,19 @@ public class Todo extends Task {
         if (description.isBlank()) {
             throw new DukeException("Warning ??? : the description of a todo cannot be empty.");
         }
+    }
+
+    /**
+     * Creates and returns a copy for different history states.
+     * Refer to copilot suggestion.
+     */
+    @Override
+    public Todo copyTask() throws DukeException {
+        Todo copy = new Todo(this.description);
+        if (this.isDone) {
+            copy.mark();
+        }
+        return copy;
     }
 
     @Override

@@ -1,9 +1,11 @@
 package jinwoo.tasks;
 
+import jinwoo.exception.DukeException;
+
 /**
  * Represents a basic task with a description and completion status.
  */
-public class Task {
+public abstract class Task {
     protected String description;
     protected boolean isDone;
 
@@ -14,6 +16,12 @@ public class Task {
         this.description = description;
         this.isDone = false;
     }
+
+    /**
+     * Creates and returns a copy for different history states.
+     * Refer to copilot suggestion.
+     */
+    public abstract Task copyTask() throws DukeException;
 
     public String getStatusIcon() {
         return (isDone ? "X" : " "); // mark done task with X

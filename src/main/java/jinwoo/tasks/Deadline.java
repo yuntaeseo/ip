@@ -38,6 +38,20 @@ public class Deadline extends Task {
     }
 
     /**
+     * Creates and returns a copy for different history states.
+     * Refer to copilot suggestion.
+     */
+    @Override
+    public Task copyTask() throws DukeException {
+        Deadline copy = new Deadline(this.description, this.by.toString());
+        if (this.isDone) {
+            copy.mark();
+        }
+        return copy;
+    }
+
+
+    /**
      * Get description for user print purpose
      */
     @Override

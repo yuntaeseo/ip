@@ -22,7 +22,7 @@ public class AddCommand extends Command {
      * Executes the add command based on the task type.
      */
     @Override
-    public void execute(TaskList tasks, Ui ui, Storage storage) throws DukeException {
+    public void executeCommand(TaskList tasks, Ui ui, Storage storage) throws DukeException {
         String description;
         Task task;
         String by;

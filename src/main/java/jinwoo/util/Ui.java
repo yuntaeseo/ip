@@ -24,6 +24,14 @@ public class Ui {
     }
 
     /**
+     * Undo message
+     */
+    public void printUndo(TaskList tasks) {
+        responseBuffer.append("Undo successful" + System.lineSeparator());
+        printList(tasks);
+    }
+
+    /**
      * Exit message
      *
      * @note doesn't actually print after terminating the program

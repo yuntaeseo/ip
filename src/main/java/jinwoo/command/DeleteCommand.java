@@ -19,7 +19,7 @@ public class DeleteCommand extends Command {
     }
 
     @Override
-    public void execute(TaskList tasks, Ui ui, Storage storage) throws DukeException {
+    public void executeCommand(TaskList tasks, Ui ui, Storage storage) throws DukeException {
         assert getCommand().length == 1 : "The length of delete command should be 1";
         int taskNum = Integer.parseInt(getCommand()[0]) - 1;
         if (taskNum < 0 || taskNum >= tasks.getTasks().size()) {

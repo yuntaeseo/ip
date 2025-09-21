@@ -12,6 +12,7 @@ import jinwoo.command.ExitCommand;
 import jinwoo.command.FindCommand;
 import jinwoo.command.ListCommand;
 import jinwoo.command.MarksCommand;
+import jinwoo.command.UndoCommand;
 import jinwoo.exception.DukeException;
 
 /**
@@ -27,6 +28,7 @@ public class Parser {
     private static final String DEADLINE = "deadline";
     private static final String EVENT = "event";
     private static final String FIND = "find";
+    private static final String UNDO = "undo";
 
     /**
      * Parses a string into a LocalDate object.
@@ -94,6 +96,9 @@ public class Parser {
             case FIND -> {
                 String keyword = parts[1];
                 return new FindCommand(new String[]{keyword});
+            }
+            case UNDO -> {
+                return new UndoCommand();
             }
             default -> throw new DukeException("Warning ??? : Wrong action.");
             }

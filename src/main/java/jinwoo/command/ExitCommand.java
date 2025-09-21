@@ -13,7 +13,7 @@ public class ExitCommand extends Command {
      * Exit() method to terminate the program.
      */
     @Override
-    public void execute(TaskList tasks, Ui ui, Storage storage) {
+    public void executeCommand(TaskList tasks, Ui ui, Storage storage) {
         ui.printExit();
         System.exit(0); // Terminates before printing exit message
     }
