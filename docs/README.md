@@ -2,7 +2,8 @@
 
 Welcome to Jinwoo, your personal task management companion! This guide will help you master all of Jinwoo's features.
 
-![Jinwoo ChatBot](../src/main/resources/images/Sungjinwoo.png)
+<!-- Add a screenshot of the GUI here when available -->
+<!-- ![Jinwoo ChatBot](../src/main/resources/images/Sungjinwoo.png) -->
 
 ## Table of Contents
 1. [Getting Started](#getting-started)

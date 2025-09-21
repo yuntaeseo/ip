@@ -88,14 +88,19 @@ bye                     # Exit the application
 ## 📁 Project Structure
 ```
 src/
-├── main/java/jinwoo/
-│   ├── Jinwoo.java          # Main application class
-│   ├── command/             # Command implementations
-│   ├── tasks/               # Task types (Todo, Deadline, Event)
-│   ├── gui/                 # JavaFX GUI components
-│   ├── storage/             # File I/O operations
-│   └── util/                # Utility classes
-└── test/                    # Unit tests
+├── main/
+│   ├── java/jinwoo/
+│   │   ├── Jinwoo.java          # Main application class
+│   │   ├── command/             # Command implementations (Add, Delete, Find, etc.)
+│   │   ├── tasks/               # Task types (Todo, Deadline, Event)
+│   │   ├── gui/                 # JavaFX GUI components
+│   │   ├── storage/             # File I/O operations
+│   │   ├── util/                # Utility classes (Parser, UI)
+│   │   └── exception/           # Custom exceptions
+│   └── resources/
+│       ├── images/              # UI icons and images
+│       └── view/                # FXML layout files
+└── test/                        # Unit tests
 ```
 
 ## 🤝 Contributing
