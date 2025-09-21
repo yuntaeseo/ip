@@ -1,13 +1,13 @@
 # Jinwoo Chatbot
 
-![Product Ui](docs/Ui.png)
+![Product Ui](Ui.png)
 
 ## Table of Contents
 
 - [Introduction](#introduction)
 - [Features](#features)
 - [Getting Started](#getting-started)
-- [Output Examples](#outputexamples)
+- [Output Examples](#output-examples)
 
 ---
 
